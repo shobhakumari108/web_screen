@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_screens/page5.dart';
 
 class Page4 extends StatefulWidget {
   const Page4({super.key});
@@ -60,14 +61,21 @@ class _Page4State extends State<Page4> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             RichText(
-                                text: const TextSpan(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
                                     text: 'Payable Now',
-                                    style: TextStyle(fontSize: 20),
-                                    children: [
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.black),
+                                  ),
                                   TextSpan(
                                     text: '\u20B9 999',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.black),
                                   )
-                                ])),
+                                ],
+                              ),
+                            ),
                             const SizedBox(
                               height: 20,
                             ),
@@ -272,13 +280,17 @@ class _Page4State extends State<Page4> {
                         ),
                         ElevatedButton(
                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Page5()),
+                            );
                             // Add functionality for when the button is pressed
                           },
                           style: ElevatedButton.styleFrom(
-                            primary:  const Color.fromRGBO(
-                                                4, 84, 116, 1.0), // Color of the button
+                            primary: const Color.fromRGBO(
+                                4, 84, 116, 1.0), // Color of the button
                             minimumSize: const Size(
-                                300, 40), // Width and height of the button
+                                700, 50), // Width and height of the button
                           ),
                           child: const Text(
                             'Prpceed',

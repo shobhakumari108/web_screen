@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Page3 extends StatefulWidget {
-  const Page3({super.key});
+class Page13 extends StatefulWidget {
+  const Page13({super.key});
 
   @override
-  State<Page3> createState() => _Page3State();
+  State<Page13> createState() => _Page13State();
 }
 
-class _Page3State extends State<Page3> {
+class _Page13State extends State<Page13> {
   List<bool> isIconSelected = [false, false, false];
   bool isChecked = false;
 
@@ -39,7 +39,7 @@ class _Page3State extends State<Page3> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 40),
+              padding: const EdgeInsets.only(left: 80, right: 80, top: 40),
               height: size.height,
               width: size.width,
               child: Row(
@@ -48,25 +48,53 @@ class _Page3State extends State<Page3> {
                     flex: 1,
                     child: Column(
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                Icons.arrow_back_ios_new_rounded,
+                                color: Color.fromRGBO(4, 84, 116, 1.0),
+                                size: 36.0,
+                              ),
+                              onPressed: () {
+                                // Add functionality for back button here
+                              },
+                            ),
+                            SizedBox(
+                              width: 50,
+                            ),
+                            Text(
+                              'Back',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Color.fromRGBO(4, 84, 116, 1.0),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 60,
+                        ),
                         const Text(
-                          'Enter any UPI ID',
+                          'Enter card Details',
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w800),
                           overflow: TextOverflow.visible,
                         ),
                         const SizedBox(
-                          height: 60,
+                          height: 40,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             RichText(
                                 text: const TextSpan(
-                                    text: 'Payable Now',
+                                    text: 'Payable Now ',
                                     style: TextStyle(fontSize: 20),
                                     children: [
                                   TextSpan(
-                                    text: '\u20B9 999',
+                                    text: ' \u20B9 999',
                                   )
                                 ])),
                             const SizedBox(
@@ -91,33 +119,65 @@ class _Page3State extends State<Page3> {
                         Text(
                           "Credit/Debit Card",
                           style: TextStyle(
-                              color: Colors.grey[400],
+                              color: Colors.black,
                               fontWeight: FontWeight.w800,
                               fontSize: 30),
                         ),
                         const SizedBox(
                           height: 30,
                         ),
-                        
-                      Container(
-  decoration: BoxDecoration(
-    border: Border.all(color: Colors.black),
-    borderRadius: BorderRadius.circular(15),
-  ),
-  padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 15),
-  child: TextField(
-    decoration: InputDecoration(
-      border: InputBorder.none,
-      hintText: "Card Number",
-      suffixIcon: Icon(
-        Icons.credit_card,
-        color: Color.fromRGBO(4, 84, 116, 1.0),
-      ),
-    ),
-  ),
-),
-
-
+                        Text(
+                          "Please ensure your card can be used",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 20),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "for online transaction. ",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 20),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Know more",
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 20),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 2, horizontal: 15),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Card Number",
+                              suffixIcon: Icon(
+                                Icons.credit_card,
+                                color: Color.fromRGBO(4, 84, 116, 1.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
                         Container(
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.black),
@@ -130,35 +190,49 @@ class _Page3State extends State<Page3> {
                                 hintText: "Name on Card"),
                           ),
                         ),
-                         Row(
-                           children: [
-                             Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  borderRadius: BorderRadius.circular(15)),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 2, horizontal: 15),
-                              child: const TextField(
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Valid thru(MM/YY)"),
-                              ),
-                              
+                        SizedBox(
+                          height: 30,
                         ),
-                        Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  borderRadius: BorderRadius.circular(15)),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 2, horizontal: 15),
-                              child: const TextField(
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "CVV"),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(15)),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 2, horizontal: 15),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Valid thru(MM/YY)"),
+                                ),
                               ),
-                        )
-                           ],
-                         ),
+                            ),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(15)),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 2, horizontal: 15),
+                                child: const TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "CVV",
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
                         Row(
                           children: [
                             Padding(
@@ -198,9 +272,9 @@ class _Page3State extends State<Page3> {
                           },
                           style: ElevatedButton.styleFrom(
                             primary: const Color.fromRGBO(
-                                                4, 84, 116, 1.0),// Color of the button
+                                4, 84, 116, 1.0), // Color of the button
                             minimumSize: const Size(
-                                300, 40), // Width and height of the button
+                                300, 50), // Width and height of the button
                           ),
                           child: const Text(
                             'Proceed',

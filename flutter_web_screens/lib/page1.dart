@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_screens/page2.dart';
 
 class Page1 extends StatefulWidget {
   const Page1({Key? key});
@@ -23,9 +24,7 @@ class _Page1State extends State<Page1> {
       body: Padding(
         padding: const EdgeInsets.only(left: 150, right: 150, top: 60),
         child: Container(
-         
           child: Row(
-            
             children: [
               Column(
                 children: [
@@ -68,20 +67,21 @@ class _Page1State extends State<Page1> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Payable Now',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Text(
-                              '\u20B9 999',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          ],
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Payable Now',
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.black),
+                              ),
+                              TextSpan(
+                                text: '\u20B9 999',
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.black),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           height: 20,
@@ -113,24 +113,20 @@ class _Page1State extends State<Page1> {
                       children: [
                         Row(
                           children: [
-                           
                             Container(
                               width: 25,
                               height: 25,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  
                                   border: Border.all(
                                     color: Color.fromRGBO(4, 84, 116, 1.0),
                                     width: 2,
-                                  ) 
-                                  ),
+                                  )),
                               child: Center(
                                 child: Text(
                                   '1',
                                   style: TextStyle(
-                                    color: Color.fromRGBO(
-                                        4, 84, 116, 1.0), 
+                                    color: Color.fromRGBO(4, 84, 116, 1.0),
                                     fontSize: 16,
                                   ),
                                 ),
@@ -161,13 +157,16 @@ class _Page1State extends State<Page1> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            // Add the action you want to perform when the button is pressed.
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Page2()),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Color.fromRGBO(4, 84, 116, 1.0),
                           ),
                           child: Text('Change'),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -186,18 +185,15 @@ class _Page1State extends State<Page1> {
                               height: 25,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  
                                   border: Border.all(
                                     color: Color.fromRGBO(4, 84, 116, 1.0),
                                     width: 2,
-                                  ) 
-                                  ),
+                                  )),
                               child: Center(
                                 child: Text(
                                   '2',
                                   style: TextStyle(
-                                    color: Color.fromRGBO(
-                                        4, 84, 116, 1.0), 
+                                    color: Color.fromRGBO(4, 84, 116, 1.0),
                                     fontSize: 16,
                                   ),
                                 ),
@@ -231,8 +227,6 @@ class _Page1State extends State<Page1> {
                             // Add the action you want to perform when the button is pressed.
                           },
                           style: ElevatedButton.styleFrom(
-                            
-
                             primary: Color.fromRGBO(4, 84, 116, 1.0),
                           ),
                           child: Text('Change'),
@@ -244,14 +238,21 @@ class _Page1State extends State<Page1> {
                     height: 40,
                   ),
                   Container(
-                    width: 500,
-                    height: 40,
-                    color: Color.fromRGBO(4, 84, 116, 1.0),
-                    child: Center(
-                      child: Text(
-                        "Payment Option",
-                        style: TextStyle(color: Colors.white),
+                    width: 500, // Set the desired width
+                    height: 50, // Set the desired height
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page2()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromRGBO(4, 84, 116, 1.0),
                       ),
+                      child: Text('Payment Option',
+                          style: TextStyle(
+                              fontSize: 16)), // Adjust the font size if needed
                     ),
                   ),
                   SizedBox(
@@ -313,7 +314,6 @@ class _Page1State extends State<Page1> {
                                     color: Color.fromRGBO(4, 84, 116, 1.0),
                                     fontWeight: FontWeight.bold),
                               ),
-                             
                             ],
                           ),
                           trailing: Icon(Icons.arrow_forward_ios_outlined,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_screens/page6.dart';
 
 class Page5 extends StatefulWidget {
   @override
@@ -6,7 +7,8 @@ class Page5 extends StatefulWidget {
 }
 
 class _Page5State extends State<Page5> {
-  TextEditingController otpController = TextEditingController();
+  List<TextEditingController> otpControllers =
+      List.generate(5, (index) => TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,8 @@ class _Page5State extends State<Page5> {
                   ),
                   child: Center(
                     child: TextField(
-                      controller: otpController,
+                      controller: otpControllers[
+                          index], // Use the respective controller
                       textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
                       maxLength: 1,
@@ -76,7 +79,15 @@ class _Page5State extends State<Page5> {
             SizedBox(height: 70),
             ElevatedButton(
               onPressed: () {
-                // Add functionality for when the button is pressed
+                // Access individual OTP digits using otpControllers
+                String otp = otpControllers.fold(
+                    '', (value, controller) => value + controller.text);
+                // Now, you have the complete OTP in the 'otp' variable
+                print('Entered OTP: $otp');
+                 Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page6()),
+                        ); // Replace with your desired logic
               },
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(4, 84, 116, 1.0), // Button color

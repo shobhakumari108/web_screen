@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_screens/page9.dart';
 
 class Page8 extends StatefulWidget {
   const Page8({super.key});
@@ -39,7 +40,7 @@ class _Page8State extends State<Page8> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 40),
+              padding: const EdgeInsets.only(left: 80, right: 15, top: 40),
               height: size.height,
               width: size.width,
               child: Row(
@@ -47,6 +48,7 @@ class _Page8State extends State<Page8> {
                   Expanded(
                     flex: 1,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
                           'Enter any UPI ID',
@@ -99,6 +101,7 @@ class _Page8State extends State<Page8> {
                           height: 30,
                         ),
                         SizedBox(
+                          width: size.width / 2,
                           child: ListView.builder(
                             shrinkWrap: true,
                             itemCount: 2,
@@ -175,16 +178,53 @@ class _Page8State extends State<Page8> {
                           ),
                         ),
                         Container(
+                          width: size.width / 2,
                           decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
+                              border: Border.all(color: Colors.black, width: 2),
                               borderRadius: BorderRadius.circular(15)),
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 2, horizontal: 15),
-                          child: const TextField(
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Enter UPI Id"),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  // width: size.width / 4,
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 2, horizontal: 15),
+                                  child: const TextField(
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Enter UPI Id",
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 52,
+                                width: 1,
+                                color: Colors.black,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  width: size.width / 4,
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 2, horizontal: 15),
+                                  child: const TextField(
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "@oksbi",
+                                      suffixIcon: Icon(
+                                        Icons.expand_more_rounded,
+                                        color: Color.fromRGBO(4, 84, 116, 1.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
+                        ),
+                        SizedBox(
+                          height: 20,
                         ),
                         Row(
                           children: [
@@ -221,13 +261,17 @@ class _Page8State extends State<Page8> {
                         ),
                         ElevatedButton(
                           onPressed: () {
+                             Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page9()),
+                        );
                             // Add functionality for when the button is pressed
                           },
                           style: ElevatedButton.styleFrom(
                             primary: const Color.fromARGB(
                                 255, 61, 221, 66), // Color of the button
                             minimumSize: const Size(
-                                300, 40), // Width and height of the button
+                                300, 50), // Width and height of the button
                           ),
                           child: const Text(
                             'Verify',
@@ -237,23 +281,23 @@ class _Page8State extends State<Page8> {
                             ),
                           ),
                         ),
-
                         SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          width: size.width / 2,
                           child: ListView.builder(
                             shrinkWrap: true,
                             itemCount: 1,
                             itemBuilder: (context, index) {
                               List<IconData> icons = [
-                                
                                 Icons.brightness_1_outlined,
                               ];
                               List<String> additionalIcons = [
-                                
                                 'assets/phone_pay_img.jpg',
                               ];
 
                               List<String> texts = [
-                                
                                 'Phonepe',
                               ];
 

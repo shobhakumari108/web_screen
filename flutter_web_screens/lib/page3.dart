@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_screens/page4.dart';
 
 class Page3 extends StatefulWidget {
   const Page3({super.key});
@@ -39,7 +40,7 @@ class _Page3State extends State<Page3> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 40),
+              padding: const EdgeInsets.only(left: 80, right: 80, top: 40),
               height: size.height,
               width: size.width,
               child: Row(
@@ -61,14 +62,21 @@ class _Page3State extends State<Page3> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             RichText(
-                                text: const TextSpan(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
                                     text: 'Payable Now',
-                                    style: TextStyle(fontSize: 20),
-                                    children: [
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.black),
+                                  ),
                                   TextSpan(
                                     text: '\u20B9 999',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.black),
                                   )
-                                ])),
+                                ],
+                              ),
+                            ),
                             const SizedBox(
                               height: 20,
                             ),
@@ -186,6 +194,9 @@ class _Page3State extends State<Page3> {
                                 hintText: "Enter UPI Id"),
                           ),
                         ),
+                        const SizedBox(
+                          height: 30,
+                        ),
                         Row(
                           children: [
                             Padding(
@@ -221,13 +232,17 @@ class _Page3State extends State<Page3> {
                         ),
                         ElevatedButton(
                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Page4()),
+                            );
                             // Add functionality for when the button is pressed
                           },
                           style: ElevatedButton.styleFrom(
                             primary: const Color.fromARGB(
                                 255, 61, 221, 66), // Color of the button
                             minimumSize: const Size(
-                                300, 40), // Width and height of the button
+                                700, 50), // Width and height of the button
                           ),
                           child: const Text(
                             'Verify',
